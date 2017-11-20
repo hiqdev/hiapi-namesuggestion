@@ -1,0 +1,9 @@
+package:
+    type:           yii2-extension
+    name:           hiapi-namesuggestion
+    title:          hiAPI NameSuggestion.com plugin
+    headline:       hiAPI NameSuggestion
+    keywords:       hiapi, namesuggestion
+    description:    |
+        NameSuggestion.com plugin for hiAPI.
+
