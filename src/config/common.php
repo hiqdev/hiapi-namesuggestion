@@ -12,7 +12,7 @@ return [
     'container' => [
         'definitions' => [
             'namesuggestion-tool' => [
-                'class' => \hiapi\namesuggestion\GoGetSSLTool::class,
+                'class' => \hiapi\namesuggestion\NameSuggestionTool::class,
             ],
         ],
     ],
