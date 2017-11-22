@@ -43,11 +43,12 @@ class NameSuggestionTool extends \hiapi\components\AbstractTool
             return err::set($rows, $e->getMessage());
         }
 
+        return $res;
     }
 
     public function domainsCheck ($jrow)
     {
-        $this->method = "bulk-search";
+        return $this->execute('bulk-search', arr::merge($jrow, $this->prepareDefaults($jrow)));
     }
 
     private function prepareDefaults($data)
