@@ -10,11 +10,8 @@
 
 namespace hiapi\namesuggestion;
 
-use cfg;
-use Closure;
 use err;
 use arr;
-
 
 /**
  * NameSuggestion.com tool.
