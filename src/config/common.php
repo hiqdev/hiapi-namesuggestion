@@ -11,7 +11,7 @@
 return [
     'container' => [
         'definitions' => [
-            'namesuggestion-tool' => [
+            'namesuggestionTool' => [
                 'class' => \hiapi\namesuggestion\NameSuggestionTool::class,
             ],
         ],
