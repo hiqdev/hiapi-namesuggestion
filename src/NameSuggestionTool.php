@@ -109,10 +109,11 @@ class NameSuggestionTool extends \hiapi\components\AbstractTool
             CURLOPT_URL => "{$this->data['url']}{$method}?" . http_build_query($data),
             CURLOPT_HTTPHEADER      => [
                 'Accept: application/json',
-                'X-DOMAINSCOPE-APIKEY:'. $this->data['password'],
+                'X-NAMESUGGESTION-APIKEY:' . $this->data['password'],
                 "Expect:",
             ],
             CURLOPT_HEADER          => 0,
+            CURLINFO_HEADER_OUT     => true,
             CURLOPT_HEADERFUNCTION  => [&$this, 'readHeader'],
             CURLOPT_BUFFERSIZE      => 64000,
         ]);
