@@ -9,11 +9,7 @@
  */
 
 return [
-    'container' => [
-        'definitions' => [
-            'namesuggestionTool' => [
-                '__class' => \hiapi\namesuggestion\NameSuggestionTool::class,
-            ],
-        ],
+    'namesuggestionTool' => [
+        '__class' => \hiapi\namesuggestion\NameSuggestionTool::class,
     ],
 ];
