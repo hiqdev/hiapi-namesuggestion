@@ -8,8 +8,10 @@
  * @copyright Copyright (c) 2017, HiQDev (http://hiqdev.com/)
  */
 
-return [
+$definitions = [
     'namesuggestionTool' => [
         '__class' => \hiapi\namesuggestion\NameSuggestionTool::class,
     ],
 ];
+
+return class_exists('Yii') ? ['container' => ['definitions' => $definitions]] : $definitions;
