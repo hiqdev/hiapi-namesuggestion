@@ -10,8 +10,8 @@
 
 namespace hiapi\namesuggestion;
 
-use err;
-use arr;
+use hiapi\legacy\lib\deps\err;
+use hiapi\legacy\lib\deps\arr;
 
 /**
  * NameSuggestion.com tool.
