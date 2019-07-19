@@ -100,13 +100,15 @@ class NameSuggestionTool extends \hiapi\components\AbstractTool
     **/
     private function get($method, $data)
     {
+        $data = $this->prepareTlds($data);
         $ch = curl_init();
+        $url = "{$this->data['url']}{$method}?" . http_build_query($data);
         curl_setopt_array($ch, [
             CURLOPT_USERAGENT       => 'curl/0.00 (php 5.x; U; en)',
             CURLOPT_RETURNTRANSFER  => 1,
             CURLOPT_SSL_VERIFYPEER  => FALSE,
             CURLOPT_SSL_VERIFYHOST  => 2,
-            CURLOPT_URL => "{$this->data['url']}{$method}?" . http_build_query($data),
+            CURLOPT_URL => $url,
             CURLOPT_HTTPHEADER      => [
                 'Accept: application/json',
                 'X-NAMESUGGESTION-APIKEY:' . $this->data['password'],
@@ -126,6 +128,19 @@ class NameSuggestionTool extends \hiapi\components\AbstractTool
         }
         curl_close($ch);
         return $searchResponse;
+    }
+
+    private function prepareTlds($data)
+    {
+        if (empty($data['tlds'])) {
+            return $data;
+        }
+        $tlds = explode(',', $data['tlds']);
+        # XXX All zones and this doesn't work:
+        # $data['tlds'] = implode(',', array_diff($tlds, ['pp.ru', 'org.ru']));
+        $data['tlds'] = 'com,info,net,ru,org,pro,biz,mobi,me,name,tv,su,cc';
+
+        return $data;
     }
 
     /**
