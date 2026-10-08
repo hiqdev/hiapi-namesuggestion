@@ -126,7 +126,6 @@ class NameSuggestionTool extends \hiapi\components\AbstractTool
             $message = json_decode($searchResponse['response'], true);
             throw new \Exception('error during request: '. $message['message']);
         }
-        curl_close($ch);
         return $searchResponse;
     }
 
